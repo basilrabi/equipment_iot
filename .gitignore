@@ -4,6 +4,7 @@
 *.blg
 *.log
 *.out
+*.toc
 *.xml
 *.gz
 main.pdf

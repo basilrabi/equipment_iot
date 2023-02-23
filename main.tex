@@ -1,19 +1,99 @@
-\documentclass{article}
+\documentclass[12pt]{report}
 \usepackage[style=ieee]{biblatex}
 \addbibresource{references.bib}
-\usepackage[letterpaper,hmargin={20mm,20mm},top=20mm,bottom=20mm]{geometry}
-
 \usepackage{enumitem}
 \setlist[enumerate]{nosep}
+\usepackage{fancyhdr}
+\usepackage{fontspec}
+\usepackage[letterpaper,hmargin={47.5mm,17.5mm},top=64.0mm,bottom=25.4mm]{geometry}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage[explicit]{titlesec}
+\usepackage{tocbibind}
+\usepackage{wallpaper}
+
+\newcommand{\authora}{
+    Basil Eric C. Rabi %
+}
+\newcommand{\authorb}{
+    John Kenneth C. Velonta %
+}
+\newcommand{\thetitle}{Use of an Integrated GSM-GNSS Module in Real-Time Monitoring of Equipment Activity in Surface Mines}
 
 \usepackage[hidelinks]{hyperref}
+\hypersetup{
+    pdfborder  = {0 0 0},
+    pdfinfo    = {
+        Title    = {\thetitle},
+        Subject  = {Internet of Things},
+        Author   = {\authora and \authorb},
+        Keywords = {IoT, Mining, Equipment, GSM, GNSS}
+    }
+}
 
-\title{Use of an Integrated GSM-GNSS Module in Real-Time Monitoring of Equipment Activity in Surface Mines}
-\author{Basil Eric C. Rabi \and John Kenneth C. Velonta}
+\addtolength{\headwidth}{15pt}
+\doublespacing
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\headrulewidth}{0pt}
+\setmainfont[Mapping=tex-text-ms]{Times New Roman}
+\setlength{\headheight}{15pt}
+\setlength{\parindent}{12.7mm}
+\titleformat{\chapter}[block]{\bfseries\centering}{}{0em}{#1}
+\titlespacing{\chapter}{0pt}{-20pt}{30pt}
 
 \begin{document}
 
-\maketitle
+\ULCornerWallPaper{1}{spus.pdf}
+\pagenumbering{roman}
+\addcontentsline{toc}{chapter}{TITLE PAGE}
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1cm}
+\textbf{\MakeUppercase{\thetitle}}
+
+\vspace{1.5cm}
+A Research Concept Paper Presented to \\
+The College of Engineering \\
+St. Paul University Surigao
+
+\vfill
+
+In Partial Fulfillment of the Requirements for the Course \\
+RESEARCH METHODS
+
+\vspace{1cm}
+By:
+
+\vspace{1cm}
+\textbf{\authora} \\
+\textbf{\authorb} \\
+
+\vspace{1cm}
+March 2023
+
+\end{center}
+
+\fancypagestyle{plain}{
+    \fancyhead{}
+    \fancyfoot{}
+    \fancyhead[R]{\thepage}
+}
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[R]{\thepage}
+
+\tableofcontents
+
+\titleformat{\chapter}[block]{\bfseries\centering}{CHAPTER \thechapter\\#1}{0em}{}
+\titleformat{\section}[block]{\bfseries\centering}{\MakeUppercase{#1}}{0em}{}
+\titleformat{\subsection}[block]{\bfseries}{#1}{0em}{}
+
+\chapter{THE PROBLEM AND ITS BACKGROUND}
+\pagenumbering{arabic}
 
 \section{Introduction}
 
@@ -36,12 +116,14 @@ IoT is now widespread in various mining companies in order to make the industry 
 Monitoring systems in these mining companies use IoT to improve Health, Safety, and productivity \cite{IoTinMining}.
 In the Philippines, an IoT system called ER MineTracer was recently designed to improve emergency response during incidents in a mine by replacing manual communication of location via hand-held radios with more reliable devices such as GPS and mobile phones \cite{ERMineTracer}.
 
-\subsection{Challenges in Philippine Surface Mines}
+\section{Conceptual Framework of the Study}
+
+\section{Statement of the Problem}
 
 Equipment usage data is essential in any mine for monitoring and controlling costs, productivity, and the effectiveness of equipment maintenance program.
 Any effort in slightly reducing costs and improving efficiency will have a very big impact on the profitability of big mines such as Taganito Mining Corporation (TMC), a nickel mining compnay operating in Taganito, Claver, Surigao del Norte, Philippines.
 
-\subsubsection{Productivity Control and Data Integrity}
+\subsection{Productivity Control and Data Integrity}
 
 In the case of TMC, equipment data from almost 500 units are collected using paper-based forms.
 % TODO: Number of equipment to be validated
@@ -52,12 +134,12 @@ The consolidation and review of the encoded data are done on a monthly basis.
 The present system has the following issues:
 
 \begin{enumerate}
-    \item Human errors which affect data integrity may be introduced twice: during filling-out and during encoding.
-    \item Erroneous data are not completely detected and corrected since spreadsheet-encoded data are only checked manually.
-    \item Any operational inefficiency can only be detected and addressed after a month of encoding.
+\item Human errors which affect data integrity may be introduced twice: during filling-out and during encoding.
+\item Erroneous data are not completely detected and corrected since spreadsheet-encoded data are only checked manually.
+\item Any operational inefficiency can only be detected and addressed after a month of encoding.
 \end{enumerate}
 
-\subsubsection{Equipment Downtime Reduction}
+\subsection{Equipment Downtime Reduction}
 
 When an equipment breakdown occurs, the operator may communicate the breakdown to the supervisor via call or SMS if there is sufficient phone signal.
 Once the supervisor is aware of the breakdown, the supervisor will report to the equipment dispatcher via hand-held radio, phone call, or SMS and then the equipment dispatcher will report to the maintenance crew.
@@ -65,16 +147,39 @@ Once the supervisor is aware of the breakdown, the supervisor will report to the
 The present equipment breakdown reporting system has the following limitations:
 
 \begin{enumerate}
-    \item Reporting of the down equipment can be delayed up to a duration of 1 shift if the operator is unable to use the phone.
-    \item Repair of the down equipment may be delayed up to several days if the maintenance crew is unable to pinpoint the exact location of the down equipment.
+\item Reporting of the down equipment can be delayed up to a duration of 1 shift if the operator is unable to use the phone.
+\item Repair of the down equipment may be delayed up to several days if the maintenance crew is unable to pinpoint the exact location of the down equipment.
 \end{enumerate}
 
+\section{Hypothesis}
 
-\subsection{Objectives}
+\section{Significance of the Study}
 
 The objective of the study is to produce a working prototype of an automated data collection system for equipment usage that will use commercially available GSM-GNSS modules, removing the need for paper-based forms and manual data encoding, and possibly removing the need for mobile data reception to transmit live data to the central server.
 This study also makes it possible to create a real-time dashboard and location mapping of equipment which will improve the response time to changes and sub-optimal conditions in the operation.
 
-\printbibliography
+\section{Scope and Limitation of the Study}
+
+\section{Definition of Terms}
+
+\chapter{METHODS}
+
+\section{Research Design}
+
+\section{Participants}
+
+\section{Instruments}
+
+\section{Data Gathering Procedures}
+
+\section{Data Analysis}
+
+\section{Ethical Considerations}
+
+\titleformat{\chapter}[block]{\bfseries\centering}{}{0em}{#1}
+\printbibliography[
+    title = {REFERENCES},
+    heading = bibintoc
+]
 
 \end{document}

@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage[style=ieee]{biblatex}
+\addbibresource{references.bib}
+\usepackage[letterpaper,hmargin={20mm,20mm},top=20mm,bottom=20mm]{geometry}
+
+\usepackage{enumitem}
+\setlist[enumerate]{nosep}
+
+\usepackage[hidelinks]{hyperref}
+
+\title{Use of an Integrated GSM-GNSS Module in Real-Time Monitoring of Equipment Activity in Surface Mines}
+\author{Basil Eric C. Rabi \and John Kenneth C. Velonta}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\subsection{Data Collection in the Industry}
+
+Data is the life-blood of any company, regardless of which industry this may come from.
+Due to the sheer volume of industrial data that could be extracted at any given time, it is often a big undertaking to even attempt to make a data pipeline that is scalable to the highly defining characteristics of industrial data; high dimensionality and process dynamics, and large yet redundant \cite{Urhan}.
+
+The mining industry is no exception when it comes to large amount of industrial data prime for extraction.
+For example, mining companies, whether surface operations or otherwise, utilize large fleets of equipment for various purposes.
+This alone can generate thousands, if not millions of rows of data per day depending on the parameters that the company decides to obtain from these equipment.
+The advent of using information technologies in big industries have led authors to coining different terminologies such as \textit{Smart Mining}, \textit{Industry 4.0}, and \textit{Digital Revolution} among others \cite{SmartMining}.
+
+\subsection{Internet of Things}
+
+Internet of Things (IoT) is an emerging concept wherein there is seamless communication between electronic devices.
+IoT is ubiquitous in various fields such as environment, industrial, medical and transportation \cite{IoT}.
+The use of IoT improves reliability of data collection by reducing human errors through task automation.
+IoT is now widespread in various mining companies in order to make the industry more sustainable and to minimize all related risks.
+Monitoring systems in these mining companies use IoT to improve Health, Safety, and productivity \cite{IoTinMining}.
+In the Philippines, an IoT system called ER MineTracer was recently designed to improve emergency response during incidents in a mine by replacing manual communication of location via hand-held radios with more reliable devices such as GPS and mobile phones \cite{ERMineTracer}.
+
+\subsection{Challenges in Philippine Surface Mines}
+
+Equipment usage data is essential in any mine for monitoring and controlling costs, productivity, and the effectiveness of equipment maintenance program.
+Any effort in slightly reducing costs and improving efficiency will have a very big impact on the profitability of big mines such as Taganito Mining Corporation (TMC), a nickel mining compnay operating in Taganito, Claver, Surigao del Norte, Philippines.
+
+\subsubsection{Productivity Control and Data Integrity}
+
+In the case of TMC, equipment data from almost 500 units are collected using paper-based forms.
+% TODO: Number of equipment to be validated
+The forms are initially filled-out by the operators and then manually checked by the supervisors and then signed-off by the mine foremen after an 8-hour to 12-hour shift.
+The filled-out forms are encoded in a spreadsheet the next day.
+The consolidation and review of the encoded data are done on a monthly basis.
+
+The present system has the following issues:
+
+\begin{enumerate}
+    \item Human errors which affect data integrity may be introduced twice: during filling-out and during encoding.
+    \item Erroneous data are not completely detected and corrected since spreadsheet-encoded data are only checked manually.
+    \item Any operational inefficiency can only be detected and addressed after a month of encoding.
+\end{enumerate}
+
+\subsubsection{Equipment Downtime Reduction}
+
+When an equipment breakdown occurs, the operator may communicate the breakdown to the supervisor via call or SMS if there is sufficient phone signal.
+Once the supervisor is aware of the breakdown, the supervisor will report to the equipment dispatcher via hand-held radio, phone call, or SMS and then the equipment dispatcher will report to the maintenance crew.
+
+The present equipment breakdown reporting system has the following limitations:
+
+\begin{enumerate}
+    \item Reporting of the down equipment can be delayed up to a duration of 1 shift if the operator is unable to use the phone.
+    \item Repair of the down equipment may be delayed up to several days if the maintenance crew is unable to pinpoint the exact location of the down equipment.
+\end{enumerate}
+
+
+\subsection{Objectives}
+
+The objective of the study is to produce a working prototype of an automated data collection system for equipment usage that will use commercially available GSM-GNSS modules, removing the need for paper-based forms and manual data encoding, and possibly removing the need for mobile data reception to transmit live data to the central server.
+This study also makes it possible to create a real-time dashboard and location mapping of equipment which will improve the response time to changes and sub-optimal conditions in the operation.
+
+\printbibliography
+
+\end{document}

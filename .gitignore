@@ -8,3 +8,5 @@
 *.xml
 *.gz
 main.pdf
+.Rhistory
+.Rproj.user

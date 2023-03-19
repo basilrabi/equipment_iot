@@ -14,13 +14,24 @@
 \usepackage{tocbibind}
 \usepackage{wallpaper}
 
+\newcommand{\eg}{\emph{e.g.}}
+
 \newcommand{\authora}{
     Basil Eric C. Rabi %
 }
 \newcommand{\authorb}{
+    James M. Paje %
+}
+\newcommand{\authorc}{
     John Kenneth C. Velonta %
 }
-\newcommand{\thetitle}{Use of an Integrated GSM-GNSS Module in Real-Time Monitoring of Equipment Activity in Surface Mines}
+\newcommand{\authord}{
+    Richard Banog %
+}
+
+\newcommand{\thetitle}{Design of a Real-Time Equipment Monitoring System in Surface Mines Using an Integrated GSM-GNSS Module}
+% Other title suggestions below:
+% 1 - Use of an Integrated GSM-GNSS Module in Real-Time Monitoring of Equipment Activity in Surface Mines
 
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
@@ -28,7 +39,7 @@
     pdfinfo    = {
         Title    = {\thetitle},
         Subject  = {Internet of Things},
-        Author   = {\authora and \authorb},
+        Author   = {\authora and \authorb and \authorc and \authord},
         Keywords = {IoT, Mining, Equipment, GSM, GNSS}
     }
 }
@@ -40,6 +51,7 @@
 \setmainfont[Mapping=tex-text-ms]{Times New Roman}
 \setlength{\headheight}{15pt}
 \setlength{\parindent}{12.7mm}
+\setcounter{secnumdepth}{3}
 \titleformat{\chapter}[block]{\bfseries\centering}{}{0em}{#1}
 \titlespacing{\chapter}{0pt}{-20pt}{30pt}
 
@@ -63,7 +75,8 @@ St. Paul University Surigao
 \vfill
 
 In Partial Fulfillment of the Requirements for the Course \\
-RESEARCH METHODS
+%RESEARCH METHODS
+MINING ENVIRONMENTAL LAWS AND ETHICS
 
 \vspace{1cm}
 By:
@@ -71,6 +84,8 @@ By:
 \vspace{1cm}
 \textbf{\authora} \\
 \textbf{\authorb} \\
+\textbf{\authorc} \\
+\textbf{\authord} \\
 
 \vspace{1cm}
 March 2023
@@ -93,6 +108,7 @@ March 2023
 \titleformat{\chapter}[block]{\bfseries\centering}{CHAPTER \thechapter\\#1}{0em}{}
 \titleformat{\section}[block]{\bfseries\centering}{\MakeUppercase{#1}}{0em}{}
 \titleformat{\subsection}[block]{\bfseries}{#1}{0em}{}
+\titleformat{\subsubsection}[block]{}{\emph{#1}}{0em}{}
 
 \chapter{THE PROBLEM AND ITS BACKGROUND}
 \pagenumbering{arabic}
@@ -118,7 +134,39 @@ IoT is now widespread in various mining companies in order to make the industry 
 Monitoring systems in these mining companies use IoT to improve Health, Safety, and productivity \cite{IoTinMining}.
 In the Philippines, an IoT system called ER MineTracer was recently designed to improve emergency response during incidents in a mine by replacing manual communication of location via hand-held radios with more reliable devices such as GPS and mobile phones \cite{ERMineTracer}.
 
+\subsection{Benefits of Real-time Data in Surface Mine}
+
+Equipment usage data is essential in any mine for monitoring and controlling costs, productivity, preventive maintenance and equipment parts' planned repair scheduling, and the effectiveness of equipment maintenance program.
+Any effort in slightly reducing costs, increasing the life of equipment, and improving efficiency will have a very big impact on the profitability of big mines such as TMC.
+
+Thru the use of IoT, real-time data can be accessible.
+Benefits of real-time data access in surface mines include reduced resource consumption, reduced environmental effects, and improved safety performance.
+
+\subsubsection{Reduction in Paper Consumption}
+
+Equipment data in Philippine surface mines are commonly collected using paper-based forms.
+Each equipment operator fills-out a 2-page form summarizing their equipment usage during their shift.
+With this practice, a surface mine with 500 equipment units can consume 3000 leaves of paper daily.
+With the use of IoT, paper consumption in equipment usage reporting can be eliminated.
+
+\subsubsection{Reduction in Fuel Consumption}
+
+Fuel consumption increases with the presence of idling equipment units.
+A mismatch in the loader-to-hauler equipment ratio can also reduce fuel efficiency.
+On one hand, there will be an increase in fuel consumption per ton moved due to queuing of haulers when the number of haulers are too much.
+If there are too few units of haulers, on the other hand, the fuel consumption per ton moved will also increase due to the idling of the loading unit.
+Access to real-time data can effectively reduce fuel consumption if the idling units are identified and the mismatch in the loader-to-hauler equipment ratio is addressed promptly.
+
+\subsubsection{Reduction in Dust Generation and Accident Risk}
+
+Hauling speed in surface mines is also correlated to the dust generation and risk of accident.
+Increase in speed causes more dust generation and increases both the frequency and the severity of vehicular accidents.
+Thus, early detection and control of over-speeding haulers thru the use of real-time data could lessen dust generation and improve safety performance.
+
 \section{Conceptual Framework of the Study}
+
+This study uses a similar IoT system in a research study of a home security system which used a GSM module and a Raspberry Pi \cite{GSMRPi}.
+There will be four major milestones in the development cycle of the study as illustrated in Figure~\ref{fig:development_cycle}
 
 \begin{figure}[H]
     \centering
@@ -127,6 +175,17 @@ In the Philippines, an IoT system called ER MineTracer was recently designed to 
     \label{fig:development_cycle}
 \end{figure}
 
+\subsection{Formulation of Requirements}
+
+The functionalities and the features of the data collection system will be identified first.
+As the research progresses, the functionalities will be illustrated as use-case diagrams which are analogous to the design requirements \cite{UseCase}.
+
+\subsection{System Design}
+
+Bulk of the work in this study is designing the system.
+The system shall address all requirements to be identified in the previous development milestone.
+An initial high-level design drafted by the authors is shown in Figure~\ref{fig:concept_structure}.
+
 \begin{figure}[H]
     \centering
     \includegraphics[clip, trim=0 0 0 12mm, width=\linewidth]{img/feature_context.pdf}
@@ -134,65 +193,159 @@ In the Philippines, an IoT system called ER MineTracer was recently designed to 
     \label{fig:concept_structure}
 \end{figure}
 
-\subsection{Hardware Selection}
+\subsubsection{Hardware Selection}
 
-\subsection{Source Code Writing}
+The researchers chose to utilize Raspberry Pi 3B+, a single-board computer (SBC) made by Raspberry Pi Foundation, as the device's processing unit due to its low-cost yet sufficiently capable hardware for the project. 
+The low-cost of the computer will help chances of this project to have an increase in production count once a final product is demonstrated.
+A 7-inch  touchscreen monitor will be connected to the Raspberry Pi computers which will serve as the display for the graphical user interface, and will be receiving touch input from the operators depending on their current activity.
+The researchers will be attaching commercially available integrated GSM-GNSS modules to the devices to act as receiver of location data, and sender of collected data to the central server.
+A low-cost voltage regulator will also be utilized in order to control the device's voltage input to 5.1 volts, the official voltage recommendation by the Raspberry Pi Foundation \cite{rpi}, to protect the device from power fluctuations which may harm the device or corrupt the data. 
 
-\subsection{system Testing}
+On the server side, the researchers will be using a USB GSM module that will act as the receiver of the location and equipment utilization data sent by the device attached to the equipment. 
+The computer that will act as the central server of the study will be a Lenovo ThinkSystem SR650 which is equipped with the second generation of Intel Xeon Processor Scalable Family (Xeon SP Gen 2).
 
-\subsection{System Effectiveness Evaluation}
+\subsubsection{Source Code Writing}
+
+The researchers will be using the official Raspberry Pi OS as the operating system for the device.
+For the Graphical User Interface (GUI) of the device, the researchers will be using GTK, a free and open-source widget toolkit for creating graphical user interfaces.
+The sending of location and equipment utilization is made possible through the use of python-gammu, a library and command line utility for python which can be used to control GSM capable devices. 
+
+On the server side of the system, the server will be running Fedora Linux as its operating system.
+The researchers will still be using python-gammu to receive SMS text from the equipment.
+The data received will be processed and parsed by the server through Python scripts.
+The data will then be stored using PostgreSQL as the database management system for the study.
+
+The graphical user interface for the supervisors will be made through Django, a high-level Python web framework, specifically through its Admin and Views features.
+QField, a mobile Geographic Information System (GIS) application and QGIS, a desktop GIS application with direct interface to PostgreSQL database, may also be used by the engineers to access and view the real-time data of the equipment 
+
+\subsection{System Testing and Evaluation}
+
+For convenience purpose, the researchers chose to conduct the device's testing in Taganito Mining Corporation (TMC), a nickel mining company operating in Taganito, Claver, Surigao del Norte, Philippines.
+TMC is also the workplace of all the aforementioned researchers of this study. 
+Prior to the actual device pilot test, a meeting with the managers and personnel of the involved departments shall be conducted to introduce and explain the purpose of this study and the produced hardware. 
+All questions about the study shall be addressed by the researchers in the meeting.
+
+After clearance is given by the managers of the concerned departments, the researchers shall request the service of the staff of Technical Services Department for the attachment of the device to the chosen equipment.
+Testing will be made, and feedback from the end-users shall be collected and considered for revision of the system.
+Revisions will then be applied to the device and software, and testing will be continued, and feedback will be collected once again.
+The cycle of testing-feedback-revision will continue until the end-users are satisfied with the experience and functionality brought by the device and the accompanying software.
 
 \section{Statement of the Problem}
 
-Equipment usage data is essential in any mine for monitoring and controlling costs, productivity, and the effectiveness of equipment maintenance program.
-Any effort in slightly reducing costs and improving efficiency will have a very big impact on the profitability of big mines such as Taganito Mining Corporation (TMC), a nickel mining compnay operating in Taganito, Claver, Surigao del Norte, Philippines.
+Equipment usage data in Philippine surface mines is commonly collected using paper-based forms.
+This study aims to address the issues below which are the results of the present manual data gathering method.
 
-\subsection{Productivity Control and Data Integrity}
+\begin{enumerate}
+    \item How much 
+    \item What is the performance of the system in terms of
+        \begin{enumerate}
+            \item Gap between the planned PMS schedule and actual
+            \item Over-speeding 
+            \item Productivity index in terms of data turn-over of production data to finance
+        \end{enumerate}
+    \item What is the evaluation of the system by the experts in terms of
+\end{enumerate}
 
-In the case of TMC, equipment data from almost 500 units are collected using paper-based forms.
-% TODO: Number of equipment to be validated
-The forms are initially filled-out by the operators and then manually checked by the supervisors and then signed-off by the mine foremen after an 8-hour to 12-hour shift.
+\subsection{Low Data Integrity}
+
+The forms are initially filled-out by the operators and then manually checked by the supervisors and then signed-off by the foremen after an 8-hour to 12-hour shift.
 The filled-out forms are encoded in a spreadsheet the next day.
 The consolidation and review of the encoded data are done on a monthly basis.
 
-The present system has the following issues:
+Human errors which affect data integrity can be introduced twice: during filling-out and during encoding.
+Erroneous data are not completely detected and corrected since spreadsheet-encoded data can only checked manually.
 
-\begin{enumerate}
-\item Human errors which affect data integrity may be introduced twice: during filling-out and during encoding.
-\item Erroneous data are not completely detected and corrected since spreadsheet-encoded data are only checked manually.
-\item Any operational inefficiency can only be detected and addressed after a month of encoding.
-\end{enumerate}
+Further, the mine operations team and the equipment maintenance team monitor equipment usage separately.
+Comparing their collected data often results to contradicting information.
 
-\subsection{Equipment Downtime Reduction}
+\subsection{Inadequate Operational Control}
 
-When an equipment breakdown occurs, the operator may communicate the breakdown to the supervisor via call or SMS if there is sufficient phone signal.
-Once the supervisor is aware of the breakdown, the supervisor will report to the equipment dispatcher via hand-held radio, phone call, or SMS and then the equipment dispatcher will report to the maintenance crew.
+Any operational inefficiency can only be detected and addressed after a month of data collection.
+Occurrence of idling equipment and sub-optimal loader-to-hauler ratio in equipment deployment, which increase resources consumption, are not detected presently.
 
-The present equipment breakdown reporting system has the following limitations:
+\subsection{Weak Enforcement of Speed Limit}
 
-\begin{enumerate}
-\item Reporting of the down equipment can be delayed up to a duration of 1 shift if the operator is unable to use the phone.
-\item Repair of the down equipment may be delayed up to several days if the maintenance crew is unable to pinpoint the exact location of the down equipment.
-\end{enumerate}
+Speed limits are imposed in all surface mines to lessen risks of accident and to control dust generation.
+However, enforcement of the speed limit is only done thru verbal instructions and random checks by safety inspectors.
+Detection rate of over-speeding vehicles thru random checks is low.
+
+\subsection{Increased Equipment Downtime}
+
+When an equipment breakdown occurs, repairing of down unit can be delayed from 1 shift up to several days if the breakdown is not promptly relayed to maintenance crew and if the maintenance crew is unable to pinpoint the exact location of the down unit during their deployment.
+
+Also, equipment servicing is done at fixed intervals of usage (\eg 500 hours) in order to prolong the life of the equipment as part of the equipment preventive maintenance program.
+However, actual usage of the equipment prior to servicing often exceeds this duration since equipment usage data is finalized monthly.
+This poor implementation of the maintenance program leads to early downtime of equipment.
 
 \section{Hypothesis}
+
+The device and system to be produced by the researchers will help the host mining company to achieve:
+\begin{itemize}
+\setlength\itemsep{-0.1em}
+    \item Reduced human error in recording equipment activity.
+    \item Less consumption of paper.
+    \item Less manhours spent on monitoring equipment activity and health.
+    \item Reduced idle time of equipment.
+    \item Less consumption of fuel per ton handled.
+    \item Reduced frequency of over-speeding related accidents.
+    \item Reduced equipment downtime.
+    \item Reduced dust generation.
+    \item Reduced spare parts consumption per ton handled.
+    \item Reduced overall carbon emission per ton handled.
+    \item Reduced operational cost per ton handled.
+    \item A more optimized mining operation.
+\end{itemize}
 
 \section{Significance of the Study}
 
 The objective of the study is to produce a working prototype of an automated data collection system for equipment usage that will use commercially available GSM-GNSS modules, removing the need for paper-based forms and manual data encoding, and possibly removing the need for mobile data reception to transmit live data to the central server.
 This study also makes it possible to create a real-time dashboard and location mapping of equipment which will improve the response time to changes and sub-optimal conditions in the operation.
 
+This study is in-line with the goal of environmental sustainability of the mining industry through the use of modern technology.
+The use of the produced hardware and software system will help mining companies control their fleet more efficiently, reducing the fuel consumption caused by idling of equipment due to over or under assignment of trucks within an area.
+The product also hosts a feature that alerts over-speeding of trucks, which could reduce the dust generation during the hauling activity. 
+The host company could also benefit differently from this feature, as it also alerts the supervisors, safety officers, and managers when over-speeding has occurred, reducing the risk of accidents.
+
+The proposed features of the end-product are listed below, subject to change depending on the feedback of the end-users:
+\begin{itemize}
+\setlength\itemsep{-0.1em}
+    \item Real time equipment location monitoring
+    \item Paperless equipment activity monitoring
+    \item Touch-based equipment activity input
+    \item Over-speeding detection and notification system
+    \item SMS-based data send-out
+    \item Web-based front-end for real time data monitoring
+    \item Paperless service meter run data collection
+    \item Automated Preventive Maintenance Schedule notification system
+\end{itemize}
+
 \section{Scope and Limitation of the Study}
 
-\section{Definition of Terms}
+As discussed earlier, the whole system and product development, testing, data collection, and end-user engagement will be done solely at TMC for the purpose of convenience.
+This means that the product's feature design, user interface and user experience choices, and the study's conceptual layout will be based on the operational framework and end-user feedback from TMC alone.
+Should the output of this study be applied elsewhere, minor changes will have to be made in order to accommodate the different operational framework of another mining company.
+
+A limiting factor that may affect the degree of real time data collection process is the SMS network reception of a given area.
+The researchers will be addressing this issue and provide a solution so that the data collected by the device could still be sent at a later time when network reception is available.
+The available solutions however, could still reduce the degree of real time data collection.
+
+% \section{Definition of Terms}
 
 \chapter{METHODS}
 
 \section{Research Design}
 
-This study shall apply the Developmental Research Design.
+This study shall apply the Developmental Research Design. 
 
 \section{Participants}
+
+The participants of this study shall compose of personnel coming from departments or divisions relevant to the chosen company's operation that utilizes heavy and light equipment. 
+These would be operators of equipment and their respective supervisors and managers from the the Technical Services Department (TSD) and the Mines Division. 
+
+The TSD personnel are tasked to attach the device to the chosen equipment for the testing of the product.
+The operators are tasked to use the product and will be utilizing the built-in software the researchers have installed onto the device.
+The supervisors are responsible for the assignment of operators and equipment to the device, the data validation stage, and the real time monitoring of the equipment utilization.
+The managers shall observe the overall effects brought about by the product to the efficiency of the day-to-day operation of the company.
 
 \section{Instruments}
 
@@ -201,6 +354,9 @@ This study shall apply the Developmental Research Design.
 \section{Data Analysis}
 
 \section{Ethical Considerations}
+
+One common ethical dilemma among innovations and technical solutions is the reduction of needed manpower for an operation, which may lower the overall operational costs.
+The lowering of needed manpower however may in effect reduce hiring of new personnel, thus reducing the jobs available to nearby mining localities.
 
 \titleformat{\chapter}[block]{\bfseries\centering}{}{0em}{#1}
 \printbibliography[

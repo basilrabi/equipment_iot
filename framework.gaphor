@@ -3291,7 +3291,7 @@
 <val>(1.0, 0.0, 0.0, 1.0, 266.63912466804044, 137.5779560294645)</val>
 </matrix>
 <points>
-<val>[(-1.5854599090149577, -1.1860148108850979), (42.41593088429471, -3.2163451657324345)]</val>
+<val>[(-1.5854599090149577, 0.6873110738815171), (42.41593088429471, -3.2163451657324345)]</val>
 </points>
 <head-connection>
 <ref refid="a2527190-70f5-11ec-aabc-f47b099bf663"/>
@@ -4599,7 +4599,7 @@
 <ref refid="dda9595c-b71a-11ed-9e64-0d1ea1cd99a6"/>
 <ref refid="83db140e-b72c-11ed-b934-0d1ea1cd99a6"/>
 <ref refid="65bb8678-b737-11ed-a296-0d1ea1cd99a6"/>
-<ref refid="bf3e3281-b737-11ed-bdcb-0d1ea1cd99a6"/>
+<ref refid="b9f27e46-cee2-11ed-8547-0dee97560f7a"/>
 <ref refid="7c61ee4e-b71b-11ed-b31b-0d1ea1cd99a6"/>
 <ref refid="88618111-b71b-11ed-8f1c-0d1ea1cd99a6"/>
 <ref refid="4bb8c39b-b71a-11ed-aad7-0d1ea1cd99a6"/>
@@ -4695,7 +4695,7 @@
 </BlockItem>
 <Block id="b3ffa7b0-b719-11ed-8c8d-0d1ea1cd99a6">
 <name>
-<val>System Evaluation</val>
+<val>Compliance Evaluation</val>
 </name>
 <package>
 <ref refid="012edaba-70f5-11ec-aabc-f47b099bf663"/>
@@ -4728,7 +4728,7 @@
 </BlockItem>
 <Block id="d72c6930-b71a-11ed-b29c-0d1ea1cd99a6">
 <name>
-<val>Evaluation of Impact</val>
+<val>System Evaluation</val>
 </name>
 <package>
 <ref refid="012edaba-70f5-11ec-aabc-f47b099bf663"/>
@@ -4741,7 +4741,7 @@
 </Block>
 <BlockItem id="d72ca1f0-b71a-11ed-9618-0d1ea1cd99a6">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 402.55269072410414, 462.87975022204387)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 402.55269072410414, 462.879750222044)</val>
 </matrix>
 <top-left>
 <val>(-58.79992034675621, -133.59247325933927)</val>
@@ -4864,7 +4864,7 @@
 <ref refid="dda92944-b71a-11ed-b575-0d1ea1cd99a6"/>
 <ref refid="83dadc7b-b72c-11ed-aca4-0d1ea1cd99a6"/>
 <ref refid="65bb5711-b737-11ed-af4e-0d1ea1cd99a6"/>
-<ref refid="bf3e02a1-b737-11ed-bd41-0d1ea1cd99a6"/>
+<ref refid="b9f24810-cee2-11ed-8b51-0dee97560f7a"/>
 </reflist>
 </node>
 <package>
@@ -5240,7 +5240,7 @@
 <ref refid="6c151803-b712-11ed-a7a8-0d1ea1cd99a6"/>
 </activity>
 <name>
-<val>Data Accuracy Assessment</val>
+<val>Statistical Analysis of Performance Between Existing System and New System</val>
 </name>
 <presentation>
 <reflist>
@@ -5250,16 +5250,16 @@
 </Action>
 <ActionItem id="83db140e-b72c-11ed-b934-0d1ea1cd99a6">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 376.1620178222655, 401.13105748028255)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 386.6620178222656, 392.1310574802825)</val>
 </matrix>
 <top-left>
 <val>(0.0, 0.0)</val>
 </top-left>
 <width>
-<val>113.0</val>
+<val>212.0</val>
 </width>
 <height>
-<val>44.0</val>
+<val>62.0</val>
 </height>
 <diagram>
 <ref refid="55492e7c-b712-11ed-959d-0d1ea1cd99a6"/>
@@ -5301,37 +5301,37 @@
 <ref refid="65bb5711-b737-11ed-af4e-0d1ea1cd99a6"/>
 </subject>
 </ActionItem>
-<Action id="bf3e02a1-b737-11ed-bd41-0d1ea1cd99a6">
+<Action id="b9f24810-cee2-11ed-8b51-0dee97560f7a">
 <activity>
 <ref refid="6c151803-b712-11ed-a7a8-0d1ea1cd99a6"/>
 </activity>
 <name>
-<val>Labor Reduction Assessment</val>
+<val>Evaluation of Experts</val>
 </name>
 <presentation>
 <reflist>
-<ref refid="bf3e3281-b737-11ed-bdcb-0d1ea1cd99a6"/>
+<ref refid="b9f27e46-cee2-11ed-8547-0dee97560f7a"/>
 </reflist>
 </presentation>
 </Action>
-<ActionItem id="bf3e3281-b737-11ed-bdcb-0d1ea1cd99a6">
+<ActionItem id="b9f27e46-cee2-11ed-8547-0dee97560f7a">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 514.7739338450148, 414.13105748028255)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 499.44537353515625, 472.7645851805845)</val>
 </matrix>
 <top-left>
 <val>(0.0, 0.0)</val>
 </top-left>
 <width>
-<val>96.0</val>
+<val>105.0</val>
 </width>
 <height>
-<val>62.0</val>
+<val>44.0</val>
 </height>
 <diagram>
 <ref refid="55492e7c-b712-11ed-959d-0d1ea1cd99a6"/>
 </diagram>
 <subject>
-<ref refid="bf3e02a1-b737-11ed-bd41-0d1ea1cd99a6"/>
+<ref refid="b9f24810-cee2-11ed-8b51-0dee97560f7a"/>
 </subject>
 </ActionItem>
 </gaphor>
